@@ -1,15 +1,43 @@
 import { Route, Routes } from "react-router-dom";
 import { SignUp } from "./ views/signUp";
-import Container from "react-bootstrap/container";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Login } from "./ views/login";
+import { MainPage } from "./ views/mainPage";
+import { ProtectedRoute } from "./components/protectedRoute";
+import { UserProvider } from "./providers/userProvider";
+// import dotEnv from "dotenv";
+// dotEnv.config();
+
 function App() {
   return (
     <div className="App">
-      <div className="m-3">
+      <UserProvider>
         <Routes>
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route
+            path="/sign-up"
+            element={
+              <ProtectedRoute isPrivate={false}>
+                <SignUp />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <ProtectedRoute isPrivate={false}>
+                <Login />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute isPrivate={true}>
+                <MainPage />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-      </div>
+      </UserProvider>
     </div>
   );
 }
