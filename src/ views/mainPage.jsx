@@ -1,21 +1,19 @@
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
 import { signOut, getAuth } from "firebase/auth";
 import { app } from "../firebase/firebase.config.js";
+import { FinishCreateAccount } from "../components/finishCreateAccount";
+import { userProviderState } from "../providers/userProvider";
 
 export function MainPage() {
   const auth = getAuth(app);
+  const { user } = userProviderState();
+  console.log(user);
   return (
     <>
-      <Stepper alternativeLabel activeStep={1}>
-        <Step>
-          <StepLabel>verify account</StepLabel>
-        </Step>
-        <Step>
-          <StepLabel>add user name</StepLabel>
-        </Step>
-      </Stepper>
+      {!user.emailVerified || !user.username ? (
+        <FinishCreateAccount />
+      ) : (
+        <div>welcome</div>
+      )}
       <button onClick={() => signOut(auth).then((r) => console.log(r))}>
         logout
       </button>

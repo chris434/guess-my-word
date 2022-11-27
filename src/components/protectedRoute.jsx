@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { userChange } from "../firebase/firebaseSignUp.js";
+import { userChange } from "../firebase/firebaseAuth.js";
 import { userProviderState } from "../providers/userProvider";
 export function ProtectedRoute({ isPrivate, children }) {
   const { user, setUser } = userProviderState();
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     userChange(setUser, setLoading);
-    console.log(user);
   }, []);
 
   if (loading) return <div> loading...</div>;

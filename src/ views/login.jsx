@@ -1,5 +1,5 @@
 import { AuthForm } from "../components/authForm";
-import { login } from "../firebase/firebaseSignUp.js";
+import { login } from "../firebase/firebaseAuth.js";
 export function Login() {
   return (
     <AuthForm
