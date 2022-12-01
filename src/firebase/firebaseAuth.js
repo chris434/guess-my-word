@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signOut } from 'firebase/auth'
 import { getDocs, collection, query, where, addDoc } from 'firebase/firestore'
 import { app, db, userRef } from './firebase.config.js'
 
@@ -74,7 +74,7 @@ export const addUser = async(username) => {
 }
 export const userChange = (setUser, setLoadings) => {
     onAuthStateChanged(auth, async(user) => {
-
+        console.log(user)
         if (!user) {
             setUser(null)
             return setLoadings(false)
@@ -84,4 +84,8 @@ export const userChange = (setUser, setLoadings) => {
         setLoadings(false)
 
     })
+}
+
+export const logout = async() => {
+    await signOut(auth)
 }
