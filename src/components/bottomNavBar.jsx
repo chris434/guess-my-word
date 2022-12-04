@@ -28,7 +28,6 @@ export function BottomNavBar() {
     <BottomNavigation
       className={classes.root}
       onChange={navChange}
-      g
       value={navValue}>
       <BottomNavigationAction value="home" label="Words" icon={<Home />} />
       <BottomNavigationAction
