@@ -1,9 +1,11 @@
 import { useState } from "react";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core";
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  Typography,
+  makeStyles,
+} from "@material-ui/core";
 import { CenterContainer } from "./centerContainer";
 import { UsernameForm } from "./usernameForm";
 import { VerifyAccount } from "./verifyAccount";

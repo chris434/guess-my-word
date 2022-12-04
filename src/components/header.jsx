@@ -1,6 +1,4 @@
-import { Box, Button } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core";
+import { Box, Button, Typography, makeStyles } from "@material-ui/core";
 import { userProviderState } from "../providers/userProvider";
 import { logout } from "../firebase/firebaseAuth.js";
 const useStyles = makeStyles({

@@ -1,5 +1,4 @@
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import { Button, Typography } from "@material-ui/core";
 import { userProviderState } from "../providers/userProvider";
 import { verifyEmail, emailHasBeenVerified } from "../firebase/firebaseAuth.js";
 

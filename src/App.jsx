@@ -4,13 +4,11 @@ import { Login } from "./ views/login";
 import { MainPage } from "./ views/mainPage";
 import { ProtectedRoute } from "./components/protectedRoute";
 import { UserProvider } from "./providers/userProvider";
-import { MainLayout } from "./layouts/mainLayout";
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        {/* <MainLayout> */}
         <Routes>
           <Route
             path="/sign-up"
@@ -37,7 +35,6 @@ function App() {
             }
           />
         </Routes>
-        {/* </MainLayout> */}
       </UserProvider>
     </div>
   );

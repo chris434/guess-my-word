@@ -1,5 +1,4 @@
-import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   innerContainer: {
