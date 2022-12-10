@@ -29,7 +29,7 @@ export function BottomNavBar() {
       className={classes.root}
       onChange={navChange}
       value={navValue}>
-      <BottomNavigationAction value="home" label="Words" icon={<Home />} />
+      {/* <BottomNavigationAction value="home" label="Words" icon={<Home />} /> */}
       <BottomNavigationAction
         value="friends"
         label="Friends"

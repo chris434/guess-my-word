@@ -1,39 +1,27 @@
+import { useNavigate } from "react-router-dom";
+import { Button } from "@material-ui/core";
+import { Add } from "@material-ui/icons";
 import { FinishCreateAccount } from "../components/finishCreateAccount";
 import { userProviderState } from "../providers/userProvider";
 
 export function MainPage() {
   const { user } = userProviderState();
+  const navigateTo = useNavigate();
+
+  const createWord = () => {
+    navigateTo("/createWord");
+  };
   return (
     <>
       {!user.emailVerified || !user.username ? (
         <FinishCreateAccount />
       ) : (
-        <>
-          <div>welcome</div>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga quia
-          cum nulla inventore atque vero? Nam animi ratione consequatur velit
-          quos similique quas, laboriosam dicta veritatis quam, iure quo
-          doloremque! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Fuga quia cum nulla inventore atque vero? Nam animi ratione
-          consequatur velit quos similique quas, laboriosam dicta veritatis
-          quam, iure quo doloremque! Lorem ipsum, dolor sit amet consectetur
-          adipisicing elit. Fuga quia cum nulla inventore atque vero? Nam animi
-          ratione consequatur velit quos similique quas, laboriosam dicta
-          veritatis quam, iure quo doloremque! Lorem ipsum, dolor sit amet
-          consectetur adipisicing elit. Fuga quia cum nulla inventore atque
-          vero? Nam animi ratione consequatur velit quos similique quas,
-          laboriosam dicta veritatis quam, iure quo doloremque! Lorem ipsum,
-          dolor sit amet consectetur adipisicing elit. Fuga quia cum nulla
-          inventore atque vero? Nam animi ratione consequatur velit quos
-          similique quas, laboriosam dicta veritatis quam, iure quo doloremque!
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga quia
-          cum nulla inventore atque vero? Nam animi ratione consequatur velit
-          quos similique quas, laboriosam dicta veritatis quam, iure quo
-          doloremque! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Fuga quia cum nulla inventore atque vero? Nam animi ratione
-          consequatur velit quos similique quas, laboriosam dicta veritatis
-          quam, iure quo doloremque!
-        </>
+        <main style={{ padding: "1.5rem" }}>
+          <Button onClick={createWord} color="primary" variant="contained">
+            <Add />
+            create word
+          </Button>
+        </main>
       )}
     </>
   );
